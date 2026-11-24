@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>
+    window.SITE_CONFIG = {
+      SITE_URL: "https://rostislove.app/",
+      EXE_URL: "",
+      GUMROAD_URL: "",
+      CONTACT_EMAIL: "hello@rostislove.app"
+    };
+    if (new URLSearchParams(location.search).get("config") === "1") document.documentElement.hidden = true;
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#131319">
+  <meta name="description" content="Record your screen, camera and sound with Rostislove Recorder. Free for Windows 10 and 11.">
+  <title>Rostislove Recorder | Record with love</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main" data-text="skip">Skip to content</a>
+  <header class="header wrap">
+    <a class="brand" href="index.html" aria-label="Rostislove Recorder">
+      <img src="images/mark.png" width="44" height="44" alt="">
+      <span class="wordmark small" aria-hidden="true"><span class="name"><span>Rost</span><span class="is">is</span><span>love</span></span><span class="recorder">RECORDER</span></span>
+    </a>
+    <nav class="languages" aria-label="Language" data-label="language">
+      <button type="button" lang="ru" data-language="ru" aria-pressed="false">RU</button>
+      <button type="button" lang="en" data-language="en" aria-pressed="true">EN</button>
+    </nav>
+  </header>
+  <main id="main" class="wrap">
+    <section class="hero" aria-labelledby="product-name">
+      <div class="hero-copy">
+        <h1 id="product-name" class="wordmark large" aria-label="Rostislove Recorder"><span class="name" aria-hidden="true"><span>Rost</span><span class="is">is</span><span>love</span></span><span class="recorder" aria-hidden="true">RECORDER</span></h1>
+        <p class="slogan" data-text="slogan">Record with love</p>
+        <p class="intro" data-text="intro">Free screen recorder for Windows.</p>
+        <a class="store" href="https://apps.microsoft.com/detail/9MTJ2QNSQCQ9" data-label="store" aria-label="Get it from Microsoft Store">
+          <span class="store-fallback" data-text="store">Get it from Microsoft Store</span>
+          <img class="store-image" data-store width="210" height="64" alt="">
+        </a>
+        <p class="platform" data-text="platform">For Windows 10 and 11</p>
+      </div>
+      <figure class="hero-art">
+        <img id="scene" src="images/scene-en.png" width="930" height="795" alt="Recording frame, camera silhouette and controls" fetchpriority="high">
+      </figure>
+    </section>
+
+    <section class="features" aria-label="What you can record" data-label="features">
+      <article class="feature">
+        <div class="feature-art"><img src="images/area.png" width="160" height="88" alt="" loading="lazy"></div>
+        <h2 data-text="areaTitle">The whole screen or any area</h2>
+        <p data-text="areaBody">Pick the part of the screen you need or record the whole monitor.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-art"><img src="images/camera.png" width="172" height="88" alt="" loading="lazy"></div>
+        <h2 data-text="soundTitle">Camera, microphone and sound at once</h2>
+        <p data-text="soundBody">Record yourself from the camera, your voice and the computer sound along with the screen.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-art"><img src="images/pause.png" width="160" height="88" alt="" loading="lazy"></div>
+        <h2 data-text="pauseTitle">Pause to fix the frame</h2>
+        <p data-text="pauseBody">Move or resize the frame and the camera circle, then go on recording.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-art"><img class="feature-mark" src="images/mark.png" width="64" height="64" alt="" loading="lazy"></div>
+        <h2 data-text="formatsTitle">From MP4 to GIF</h2>
+        <p data-text="formatsBody">Save as MP4, MKV, MOV, WebM or GIF, whichever suits you.</p>
+      </article>
+    </section>
+
+    <section class="download" aria-labelledby="download-title">
+      <div class="download-heading">
+        <img src="images/mark.png" width="88" height="88" alt="" loading="lazy">
+        <div><h2 id="download-title" data-text="downloadTitle">Download Rostislove Recorder</h2><p data-text="downloadBody">Free, for Windows 10 and 11.</p></div>
+      </div>
+      <div class="download-actions">
+        <a class="store" href="https://apps.microsoft.com/detail/9MTJ2QNSQCQ9" data-label="store" aria-label="Get it from Microsoft Store">
+          <span class="store-fallback" data-text="store">Get it from Microsoft Store</span>
+          <img class="store-image" data-store width="210" height="64" alt="">
+        </a>
+        <div class="installer" data-optional="EXE_URL" hidden>
+          <a data-link="EXE_URL" data-text="installer">Installer for Windows 10 and 11</a>
+          <p data-text="windowsNote">If Windows shows a blue window, choose "More info", then "Run anyway".</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="support" aria-labelledby="support-title">
+      <div><h2 id="support-title" data-text="supportTitle">Support the author</h2><p data-text="supportBody">The program is free. If you enjoy it, you can support its author.</p></div>
+      <a class="support-button" data-link="GUMROAD_URL" data-optional="GUMROAD_URL" data-text="supportButton" hidden>Support the author</a>
+    </section>
+  </main>
+  <footer class="footer wrap">
+    <div class="footer-top"><a href="privacy.html" data-text="privacy">Privacy policy</a><a data-link="CONTACT_EMAIL" data-optional="CONTACT_EMAIL" hidden></a><span class="copyright">© 2026 Rostislav Beklemyshev</span></div>
+    <p class="license"><span data-text="ffmpeg">Powered by FFmpeg under the </span><a href="https://ffmpeg.org/legal.html" data-text="license">GPL v3 license</a>.</p>
+  </footer>
+</body>
+</html>
