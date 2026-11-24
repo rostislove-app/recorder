@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <script>try { const t = new URLSearchParams(location.search).get("theme") || localStorage.getItem("rostislove-theme"); if (t === "porcelain") document.documentElement.dataset.theme = "porcelain"; } catch (e) {}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#131319">
   <meta name="description" content="Privacy policy. Rostislove Recorder.">
@@ -17,10 +18,16 @@
       <img src="images/mark.png" width="44" height="44" alt="">
       <span class="wordmark small" aria-hidden="true"><span class="name"><span>Rost</span><span class="is">is</span><span>love</span></span><span class="recorder">RECORDER</span></span>
     </a>
+    <div class="controls">
+    <nav class="languages themes" aria-label="Theme" data-label="theme">
+      <button type="button" data-theme-choice="dark" data-label="themeDark" aria-pressed="true"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 9.6A6 6 0 0 1 6.4 2.5a6 6 0 1 0 7.1 7.1z"/></svg><span data-text="themeDark">Dark</span></button>
+      <button type="button" data-theme-choice="porcelain" data-label="themePorcelain" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3.2"/><path d="M8 1.2v1.6M8 13.2v1.6M1.2 8h1.6M13.2 8h1.6M3.2 3.2l1.1 1.1M11.7 11.7l1.1 1.1M3.2 12.8l1.1-1.1M11.7 4.3l1.1-1.1"/></svg><span data-text="themePorcelain">Porcelain</span></button>
+    </nav>
     <nav class="languages" aria-label="Language" data-label="language">
       <button type="button" lang="ru" data-language="ru" aria-pressed="false">RU</button>
       <button type="button" lang="en" data-language="en" aria-pressed="true">EN</button>
     </nav>
+    </div>
   </header>
   <main id="main" class="privacy-main wrap">
     <a class="back" href="index.html" data-text="back">Back to home</a>

@@ -11,10 +11,29 @@
   --dim: #c7c3d5;
   --faint: #8e8a9e;
   --shadow: 0 8px 32px rgb(11 11 16 / 35%);
+  --primary-hover: #c9304f;
+  --choice: rgb(241 78 113 / 14%);
   font-family: "Segoe UI Variable Text", system-ui, sans-serif;
   color: var(--text);
   background: var(--bg);
   font-size: 16px;
+}
+/* Warm porcelain, the light theme of the program (Source\Themes.cs, Porcelain). */
+:root[data-theme="porcelain"] {
+  color-scheme: light;
+  --bg: #f1e9df;
+  --surface: #fffaf3;
+  --raised: #eaddd2;
+  --stroke: #dccdc3;
+  --edge: #b9a59b;
+  --primary: #aa3545;
+  --primary-hover: #93283a;
+  --accent: #c2334f;
+  --text: #302625;
+  --dim: #61514b;
+  --faint: #6c5d55;
+  --shadow: 0 8px 32px rgb(80 53 45 / 16%);
+  --choice: #f1d8d8;
 }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
@@ -34,7 +53,8 @@ h2 { font-weight: 600; line-height: 1.25; text-wrap: balance; }
 .header { min-height: 104px; display: flex; align-items: center; justify-content: space-between; gap: 20px; border-bottom: 1px solid var(--stroke); }
 .brand { display: inline-flex; gap: 12px; align-items: center; text-decoration: none; flex-shrink: 0; }
 .wordmark { display: block; font-weight: 400; line-height: 1; }
-.name { display: flex; color: var(--accent); white-space: nowrap; letter-spacing: -.025em; }
+/* The R of the Display font stands a little in from its box; the shift puts its stem on the line of RECORDER and the text below. */
+.name { display: flex; color: var(--accent); white-space: nowrap; letter-spacing: -.025em; margin-left: -.055em; }
 .name .is { color: var(--text); }
 .recorder { display: block; color: var(--dim); font-family: "Segoe UI Variable Text", system-ui, sans-serif; font-size: .26em; font-weight: 600; letter-spacing: .3077em; line-height: 1.2; margin: .35em 0 0 .077em; }
 .small { font-size: 1.75rem; }
@@ -44,7 +64,10 @@ h2 { font-weight: 600; line-height: 1.25; text-wrap: balance; }
 .languages button { border: 0; cursor: pointer; color: var(--dim); background: transparent; padding: 8px 12px; min-width: 44px; min-height: 36px; border-radius: 8px; font-size: .875rem; font-weight: 600; }
 .languages button[aria-pressed="true"] { background: var(--primary); color: white; }
 .languages button:hover { background: var(--raised); color: var(--text); }
-.languages button[aria-pressed="true"]:hover { background: #c9304f; }
+.languages button[aria-pressed="true"]:hover { background: var(--primary-hover); }
+.controls { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+.themes button { display: inline-flex; align-items: center; gap: 6px; }
+.themes svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
 .hero { display: grid; grid-template-columns: .88fr 1.12fr; gap: 16px; align-items: center; padding: 70px 0 76px; }
 .hero-copy { padding-bottom: 12px; min-width: 0; }
 .slogan { font-size: clamp(1.65rem, 2.5vw, 2.15rem); line-height: 1.25; margin-top: 37px; font-weight: 400; }
@@ -59,6 +82,7 @@ h2 { font-weight: 600; line-height: 1.25; text-wrap: balance; }
 .platform { font-size: .875rem; margin-top: 12px; color: var(--dim); }
 .hero-art { min-width: 0; }
 .hero-art img { width: 100%; }
+:root[data-theme="porcelain"] .hero-art img { border-radius: 14px; box-shadow: var(--shadow); }
 .features { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; padding-bottom: 80px; }
 .feature { border-top: 1px solid var(--stroke); padding-top: 16px; }
 .feature-art { height: 105px; display: flex; align-items: center; justify-content: flex-start; margin-left: -12px; }
@@ -75,11 +99,23 @@ h2 { font-weight: 600; line-height: 1.25; text-wrap: balance; }
 .installer { font-size: .875rem; margin-top: 20px; }
 .installer a { line-height: 1.5; }
 .installer p { font-size: .875rem; margin-top: 8px; line-height: 1.5; }
+.download { margin-bottom: 64px; }
+.pay { width: 340px; }
+.pay-label { font-weight: 600; color: var(--text) !important; margin: 0 0 12px !important; }
+.amounts { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.amount { position: relative; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 14px; border: 1px solid var(--edge); border-radius: 10px; background: var(--raised); color: var(--text); font-weight: 600; cursor: pointer; }
+.amount input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+.amount:has(input[type="radio"]:checked) { border-color: var(--accent); background: var(--choice); }
+.amount:focus-within { outline: 2px solid var(--text); outline-offset: 3px; }
+.custom-field { display: inline-flex; align-items: center; gap: 4px; color: var(--dim); }
+.custom-field input { width: 64px; padding: 4px 6px; border: 1px solid var(--edge); border-radius: 8px; background: var(--bg); color: var(--text); font: inherit; font-weight: 400; }
+.pay-button { width: 100%; border: 0; cursor: pointer; }
+.downloads { margin-top: 20px; }
 .support { display: flex; justify-content: space-between; gap: 40px; align-items: center; padding: 54px 0 56px; }
 .support h2 { font-size: 1.5rem; }
 .support p { color: var(--dim); margin-top: 12px; max-width: 63ch; }
 .support-button { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; background: var(--primary); padding: 12px 24px; border-radius: 10px; color: white; font-weight: 600; text-decoration: none; min-height: 48px; }
-.support-button:hover { background: #c9304f; color: white; }
+.support-button:hover { background: var(--primary-hover); color: white; }
 .footer { border-top: 1px solid var(--stroke); padding-block: 24px 32px; color: var(--dim); font-size: .875rem; }
 .footer-top { display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: baseline; }
 .footer-top a { overflow-wrap: anywhere; }
@@ -112,6 +148,8 @@ h2 { font-weight: 600; line-height: 1.25; text-wrap: balance; }
   .small { font-size: 1.375rem; }
   .small .recorder { font-size: .625rem; letter-spacing: .18em; }
   .languages button { padding: 7px 9px; min-width: 38px; }
+  .themes span { display: none; }
+  .controls { gap: 6px; }
   .hero { grid-template-columns: 1fr; gap: 25px; padding-block: 44px 34px; }
   .hero-copy { padding-bottom: 0; }
   .large { font-size: clamp(3.5rem, 13.5vw, 5rem); }
@@ -125,6 +163,7 @@ h2 { font-weight: 600; line-height: 1.25; text-wrap: balance; }
   .download-heading > img { width: 60px; height: 60px; margin-bottom: 18px; }
   .download h2 { font-size: 1.75rem; }
   .download-actions { max-width: none; }
+  .pay { width: 100%; }
   .support { align-items: flex-start; flex-direction: column; gap: 24px; padding-block: 40px; }
   .footer-top { flex-direction: column; gap: 14px; }
   .copyright { margin-left: 0; }
