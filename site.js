@@ -14,10 +14,13 @@
       skip: "К содержимому",
       language: "Язык",
       slogan: "Снимайте с любовью",
-      intro: "Бесплатная запись экрана для Windows.",
+      intro: "Бесплатная запись экрана для Windows. С камерой, звуком и нажатыми клавишами прямо в ролике.",
       store: "Скачать в Microsoft Store",
       platform: "Для Windows 10 и 11",
       features: "Возможности записи",
+      newBadge: "Новое",
+      keysTitle: "Клавиши и клики прямо в ролике",
+      keysBody: "Зритель видит каждое сочетание клавиш, клик и прокрутку, удобно для уроков и презентаций. Включается кнопкой с клавиатурой, место, размер и прозрачность настраиваются. Нажатия никуда не отправляются и не сохраняются.",
       areaTitle: "Весь экран или любая область",
       areaBody: "Выделите нужную часть экрана или пишите весь монитор целиком.",
       soundTitle: "Камера, микрофон и звук сразу",
@@ -31,6 +34,7 @@
       download: "Скачать",
       payHint: "Понимаем, сначала хочется попробовать. Если понравится, возвращайтесь и поддержите.",
       payLabel: "Выберите сумму",
+      freeAmount: "Бесплатно",
       custom: "Своя сумма",
       customLabel: "Своя сумма в долларах",
       payButton: "Оплатить $",
@@ -47,23 +51,26 @@
       ffmpeg: "Внутри работает FFmpeg по ",
       license: "лицензии GPL v3",
       back: "На главную",
-      scene: "Рамка записи, силуэт в кружке камеры и панель управления",
-      description: "Записывайте экран, камеру и звук с Rostislove Recorder. Бесплатно для Windows 10 и 11."
+      scene: "Рамка записи с нажатыми клавишами, силуэт в кружке камеры и панель управления",
+      description: "Записывайте экран, камеру, звук и нажатые клавиши с Rostislove Recorder. Бесплатно для Windows 10 и 11."
     },
     en: {
       skip: "Skip to content",
       language: "Language",
       slogan: "Record with love",
-      intro: "Free screen recorder for Windows.",
+      intro: "Free screen recorder for Windows. With your camera, sound and the keys you press right in the clip.",
       store: "Get it from Microsoft Store",
       platform: "For Windows 10 and 11",
       features: "What you can record",
+      newBadge: "New",
+      keysTitle: "Keys and clicks right in the clip",
+      keysBody: "Viewers see every shortcut, click and scroll, handy for tutorials and presentations. Turn it on with the keyboard button and choose where the labels appear, their size and transparency. The keys are never stored or sent anywhere.",
       areaTitle: "The whole screen or any area",
       areaBody: "Pick the part of the screen you need or record the whole monitor.",
       soundTitle: "Camera, microphone and sound at once",
       soundBody: "Record yourself from the camera, your voice and the computer sound along with the screen.",
-      pauseTitle: "Pause to fix the frame",
-      pauseBody: "Move or resize the frame and the camera circle, then go on recording.",
+      pauseTitle: "Pause to adjust the frame",
+      pauseBody: "Move or resize the frame and the camera circle, then keep recording.",
       formatsTitle: "From MP4 to GIF",
       formatsBody: "Save as MP4, MKV, MOV, WebM or GIF, whichever suits you.",
       downloadTitle: "Download Rostislove Recorder",
@@ -71,6 +78,7 @@
       download: "Download",
       payHint: "We get that you want to try it first. If you like it, come back and support it.",
       payLabel: "Choose an amount",
+      freeAmount: "Free",
       custom: "Your amount",
       customLabel: "Your amount in dollars",
       payButton: "Pay $",
@@ -87,8 +95,8 @@
       ffmpeg: "Powered by FFmpeg under the ",
       license: "GPL v3 license",
       back: "Back to home",
-      scene: "Recording frame, camera silhouette and controls",
-      description: "Record your screen, camera and sound with Rostislove Recorder. Free for Windows 10 and 11."
+      scene: "Recording frame with pressed keys, camera silhouette and controls",
+      description: "Record your screen, camera, sound and the keys you press with Rostislove Recorder. Free for Windows 10 and 11."
     }
   };
 
@@ -143,8 +151,9 @@
     }
   }
 
-  // The amount works as on PureRef: $10 is chosen, $5 and your own amount are next to it. Above zero the button opens
-  // Gumroad with that amount filled in; at zero it turns into Download and shows the Store and the installer.
+  // The amount works as on PureRef: $10 is chosen, $5, Free and your own amount are next to it. Above zero the button
+  // opens Gumroad with that amount filled in; at zero it turns into Download and shows the Store and the installer.
+  // Free stands in sight (Rostislav, 26 November 2026): hidden behind a typed zero, people took the app for a paid one.
   const payButton = document.getElementById("pay-button");
   const customAmount = document.getElementById("custom-amount");
   const downloads = document.getElementById("downloads");

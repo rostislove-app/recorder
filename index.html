@@ -15,7 +15,17 @@
   <script>try { const t = new URLSearchParams(location.search).get("theme") || localStorage.getItem("rostislove-theme"); if (t === "porcelain") document.documentElement.dataset.theme = "porcelain"; } catch (e) {}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#131319">
-  <meta name="description" content="Record your screen, camera and sound with Rostislove Recorder. Free for Windows 10 and 11.">
+  <meta name="description" content="Record your screen, camera, sound and the keys you press with Rostislove Recorder. Free for Windows 10 and 11.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rostislove Recorder">
+  <meta property="og:url" content="https://rostislove.app/">
+  <meta property="og:title" content="Rostislove Recorder">
+  <meta property="og:description" content="Free screen recorder for Windows. With your camera, sound and the keys you press right in the clip.">
+  <meta property="og:image" content="https://rostislove.app/images/preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Recording frame with pressed keys on labels and the recording panel of Rostislove Recorder">
+  <meta name="twitter:card" content="summary_large_image">
   <title>Rostislove Recorder | Record with love</title>
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
   <link rel="stylesheet" href="style.css">
@@ -44,16 +54,24 @@
       <div class="hero-copy">
         <h1 id="product-name" class="wordmark large" aria-label="Rostislove Recorder"><span class="name" aria-hidden="true"><span>Rost</span><span class="is">is</span><span>love</span></span><span class="recorder" aria-hidden="true">RECORDER</span></h1>
         <p class="slogan" data-text="slogan">Record with love</p>
-        <p class="intro" data-text="intro">Free screen recorder for Windows.</p>
+        <p class="intro" data-text="intro">Free screen recorder for Windows. With your camera, sound and the keys you press right in the clip.</p>
         <a class="support-button" href="#download" data-text="download">Download</a>
         <p class="platform" data-text="platform">For Windows 10 and 11</p>
       </div>
       <figure class="hero-art">
-        <img id="scene" src="images/scene-en.png" width="930" height="795" alt="Recording frame, camera silhouette and controls" fetchpriority="high">
+        <img id="scene" src="images/scene-en.png" width="930" height="795" alt="Recording frame with pressed keys, camera silhouette and controls" fetchpriority="high">
       </figure>
     </section>
 
     <section class="features" aria-label="What you can record" data-label="features">
+      <article class="feature feature-wide">
+        <div class="feature-art"><img src="images/keys.png" width="360" height="96" alt="" loading="lazy"></div>
+        <div>
+          <p class="badge" data-text="newBadge">New</p>
+          <h2 data-text="keysTitle">Keys and clicks right in the clip</h2>
+          <p data-text="keysBody">Viewers see every shortcut, click and scroll, handy for tutorials and presentations. Turn it on with the keyboard button and choose where the labels appear, their size and transparency. The keys are never stored or sent anywhere.</p>
+        </div>
+      </article>
       <article class="feature">
         <div class="feature-art"><img src="images/area.png" width="160" height="88" alt="" loading="lazy"></div>
         <h2 data-text="areaTitle">The whole screen or any area</h2>
@@ -66,8 +84,8 @@
       </article>
       <article class="feature">
         <div class="feature-art"><img src="images/pause.png" width="160" height="88" alt="" loading="lazy"></div>
-        <h2 data-text="pauseTitle">Pause to fix the frame</h2>
-        <p data-text="pauseBody">Move or resize the frame and the camera circle, then go on recording.</p>
+        <h2 data-text="pauseTitle">Pause to adjust the frame</h2>
+        <p data-text="pauseBody">Move or resize the frame and the camera circle, then keep recording.</p>
       </article>
       <article class="feature">
         <div class="feature-art"><img class="feature-mark" src="images/mark.png" width="64" height="64" alt="" loading="lazy"></div>
@@ -86,6 +104,7 @@
         <div class="amounts" data-paid>
           <label class="amount"><input type="radio" name="amount" value="10" checked><span>$10</span></label>
           <label class="amount"><input type="radio" name="amount" value="5"><span>$5</span></label>
+          <label class="amount"><input type="radio" name="amount" value="0"><span data-text="freeAmount">Free</span></label>
           <label class="amount"><input type="radio" name="amount" value="custom"><span data-text="custom">Your amount</span><span class="custom-field">$<input id="custom-amount" type="number" inputmode="decimal" min="0" step="1" value="20" data-label="customLabel" aria-label="Your amount in dollars"></span></label>
         </div>
         <button type="button" class="support-button pay-button" id="pay-button" data-paid>Pay $10</button>
