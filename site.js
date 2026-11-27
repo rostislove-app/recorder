@@ -152,7 +152,7 @@
   }
 
   // The amount works as on PureRef: $10 is chosen, $5, Free and your own amount are next to it. Above zero the button
-  // opens Gumroad with that amount filled in; at zero it turns into Download and shows the Store and the installer.
+  // opens Gumroad with that amount filled in; at zero it turns into Download, starts the installer and shows the Store below.
   // Free stands in sight (Rostislav, 26 November 2026): hidden behind a typed zero, people took the app for a paid one.
   const payButton = document.getElementById("pay-button");
   const customAmount = document.getElementById("custom-amount");
@@ -181,6 +181,9 @@
     }
     downloads.hidden = false;
     downloads.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    // At zero the button downloads the installer at once (27 November 2026): people pressed Download, saw no file
+    // and thought the button was broken. The Store stays below for those who prefer it.
+    if (configuration.EXE_URL) location.href = configuration.EXE_URL;
   }
 
   if (payButton) {
