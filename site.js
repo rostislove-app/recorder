@@ -193,6 +193,37 @@
     payButton.addEventListener("click", pay);
   }
 
+  // The top Download button glides down to the amounts (27 November 2026). CSS scroll-behavior jumped at once in
+  // Rostislav's Chrome, so the page moves itself. With animations turned off in Windows it still jumps, as asked.
+  // Turning the wheel or touching the screen stops the glide. The skip link keeps the plain jump, it moves focus.
+  const calm = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let glide = 0;
+  function glideTo(target, gap = 32) {
+    cancelAnimationFrame(glide);
+    const top = document.documentElement.scrollHeight - innerHeight;
+    const end = Math.max(0, Math.min(target.getBoundingClientRect().top + scrollY - gap, top));
+    const start = scrollY;
+    const distance = end - start;
+    if (calm.matches || Math.abs(distance) < 2) { window.scrollTo(0, end); return; }
+    const duration = Math.min(900, 400 + Math.abs(distance) * 0.2);
+    const began = performance.now();
+    const step = now => {
+      const t = Math.min(1, (now - began) / duration);
+      const eased = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(2 - 2 * t, 3) / 2;
+      window.scrollTo(0, start + distance * eased);
+      if (t < 1) glide = requestAnimationFrame(step);
+    };
+    glide = requestAnimationFrame(step);
+  }
+  ["wheel", "touchstart"].forEach(type => window.addEventListener(type, () => cancelAnimationFrame(glide), { passive: true }));
+  document.querySelectorAll('a[href^="#"]:not(.skip)').forEach(link => link.addEventListener("click", event => {
+    const target = document.getElementById(link.getAttribute("href").slice(1));
+    if (!target) return;
+    event.preventDefault();
+    history.pushState(null, "", link.getAttribute("href"));
+    glideTo(target);
+  }));
+
   function webAddress(value) {
     try {
       const url = new URL(String(value || "").trim());
