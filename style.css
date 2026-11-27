@@ -195,5 +195,7 @@ h2 { font-weight: 600; line-height: 1.25; text-wrap: balance; }
   .feature p { margin-top: 10px; }
 }
 @media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
   a, button { transition: color .15s, background-color .15s, border-color .15s; }
 }
+.download { scroll-margin-top: 32px; }
