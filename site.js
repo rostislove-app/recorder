@@ -196,6 +196,8 @@
   // The top Download button glides down to the amounts (27 November 2026). CSS scroll-behavior jumped at once in
   // Rostislav's Chrome, so the page moves itself. With animations turned off in Windows it still jumps, as asked.
   // Turning the wheel or touching the screen stops the glide. The skip link keeps the plain jump, it moves focus.
+  // An old style.css with scroll-behavior: smooth can still sit in a cache; inline auto keeps each step instant.
+  document.documentElement.style.scrollBehavior = "auto";
   const calm = window.matchMedia("(prefers-reduced-motion: reduce)");
   let glide = 0;
   function glideTo(target, gap = 32) {
